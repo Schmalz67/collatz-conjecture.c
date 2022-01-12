@@ -1,0 +1,43 @@
+//
+//  main.c
+//  Pipe.c
+//
+//  Created by Drew Schmalz on 10/15/21.
+//
+
+
+#include <stdio.h>
+#include <string.h>
+#include <unistd.h>
+#include <sys/types.h>
+
+#define SIZE       100
+#define WRITE_END   1
+#define READ_END    0
+
+int main ()
+{
+//    int a[2];
+//    char Write_Msg[SIZE];
+//    char Read_Msg[SIZE];
+    
+    char ch, let[32];
+    int a = 0;
+
+
+   printf("Input a word that you would like ReVerSeD:  \n");
+   gets(let);
+   
+   while (let[a] != '\0') {
+      ch = let[a];
+      if (ch >= 'A' && ch <= 'Z')
+         let[a] = let[a] + 32;
+      else if (ch >= 'a' && ch <= 'z')
+         let[a] = let[a] - 32;
+      a++;
+   }
+   
+   printf("%s\n", let);
+
+   return 0;
+}
